@@ -1,0 +1,48 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Diretórios de build
+dist
+dist-ssr
+*.local
+
+# Módulos
+node_modules/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# Arquivos de build de IDEs
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite
+.vite
+
+# Cache
+.cache/
+*.tsbuildinfo
+
+# Sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Testes (se usar futuramente)
+coverage/
+
+# Ambientes (.env e variações)
+.env
+.env.*.local
