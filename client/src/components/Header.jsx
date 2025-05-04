@@ -20,8 +20,9 @@ const Header = () => {
         <Nav>
           <NavLink href="/">Início</NavLink>
           <NavLink href="/sobre">Quem Somos</NavLink>
-          <NavLink href="/adocao">Adoção</NavLink>
-          <NavLink href="/ajuda">Ajuda</NavLink>
+          <NavLink href="/adocao">Pets</NavLink>
+          <NavLink href="/desaparecidos">Desaparecidos</NavLink>
+          <NavLink href="/testimonials">Depoimentos</NavLink>
           <NavLink href="/contato">Contato</NavLink>
         </Nav>
 
