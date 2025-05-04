@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from './theme';
 
 export const Section = styled.section`
   padding: 4rem 2rem;
@@ -21,7 +22,7 @@ export const TestimonialsGrid = styled.div`
 `;
 
 export const TestimonialCard = styled.div`
-  background-color: #f9f9f9;
+  background-color: ${theme.colors.primary};
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -40,18 +41,18 @@ export const UserName = styled.h3`
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: #1a202c;
+  color: #fff;
 `;
 
 export const PetName = styled.p`
   margin: 0;
   font-size: 0.85rem;
-  color: #555;
+  color: ${theme.colors.orange};
 `;
 
 export const TestimonialText = styled.p`
   margin-top: 0.8rem;
   font-style: italic;
   font-size: 0.95rem;
-  color: #444;
+  color: ${theme.colors.lightGray};
 `;

@@ -9,7 +9,7 @@ export const Section = styled.section`
 export const SectionTitle = styled.h2`
   text-align: center;
   font-size: 1.8rem;
-  color: ${theme.colors.primary};
+  color: #1a202c;
   margin-bottom: 3rem;
 `;
 
