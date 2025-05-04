@@ -7,7 +7,10 @@ import {
   ChatBody,
   ChatInputArea,
   ChatInput,
-  SendButton
+  SendButton,
+  MessageBubble,
+  Avatar,
+  Bubble
 } from '../styles/ChatButton.styles';
 
 import { FaComments, FaTimes, FaPaperPlane } from 'react-icons/fa';
@@ -30,7 +33,14 @@ const ChatButton = () => {
             <FaTimes onClick={() => setIsOpen(false)} style={{ cursor: 'pointer' }} />
           </ChatHeader>
           <ChatBody>
-            <p>Olá! Sou o Caramelo e estou aqui pra te ajudar. Me conta, como seria o amigo ideal pra você?</p>
+            <MessageBubble>
+                <Avatar src={dogbot} alt="Dogbot" />
+                <Bubble>
+                <strong>Caramelo:</strong><br />
+                Olá! Sou o Caramelo e estou aqui pra te ajudar. <br />
+                Me conta, como seria o amigo ideal pra você?
+                </Bubble>
+            </MessageBubble>
           </ChatBody>
           <ChatInputArea>
             <ChatInput

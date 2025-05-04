@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from './theme';
 
 export const FloatingButton = styled.button`
   position: fixed;
@@ -45,7 +46,7 @@ export const ChatContainer = styled.div`
 
 
 export const ChatHeader = styled.div`
-  background-color: #0c1f4a;
+  background-color: ${theme.colors.primary};
   color: white;
   padding: 1rem;
   font-weight: bold;
@@ -98,3 +99,31 @@ export const SendButton = styled.button`
     background-color: #e56700;
   }
 `;
+
+export const MessageBubble = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+`;
+
+export const Avatar = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ff7a00;
+  object-fit: cover;
+`;
+
+export const Bubble = styled.div`
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  max-width: 75%;
+  font-size: 0.95rem;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  line-height: 1.4;
+`;
+
