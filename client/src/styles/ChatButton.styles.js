@@ -8,11 +8,20 @@ export const FloatingButton = styled.button`
   color: white;
   border: none;
   border-radius: 50%;
-  padding: 16px;
+  padding: 8px;
   font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
 
   &:hover {
     background-color: #cf5d00;
@@ -21,7 +30,7 @@ export const FloatingButton = styled.button`
 
 export const ChatContainer = styled.div`
   position: fixed;
-  bottom: 90px;
+  bottom: 130px; /* ajuste para ficar acima do botão */
   right: 24px;
   width: 360px;
   height: 500px;
@@ -33,6 +42,7 @@ export const ChatContainer = styled.div`
   flex-direction: column;
   z-index: 999;
 `;
+
 
 export const ChatHeader = styled.div`
   background-color: #0c1f4a;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import dogbot from '../assets/dogbot.png'; // Importar o ícone do chat
 import {
   FloatingButton,
   ChatContainer,
@@ -46,7 +47,7 @@ const ChatButton = () => {
       )}
 
       <FloatingButton onClick={() => setIsOpen(!isOpen)}>
-        <FaComments />
+        <img src={dogbot} alt="" />
       </FloatingButton>
     </>
   );
