@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from './theme';
 
 export const Section = styled.section`
   padding: 4rem 2rem;
@@ -8,7 +9,7 @@ export const Section = styled.section`
 export const SectionTitle = styled.h2`
   text-align: center;
   font-size: 1.8rem;
-  color: #1a202c;
+  color: ${theme.colors.primary};
   margin-bottom: 3rem;
 `;
 
@@ -21,7 +22,7 @@ export const PetsGrid = styled.div`
 `;
 
 export const PetCard = styled.div`
-  background-color: #fff;
+  background-color: ${theme.colors.primary};
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0,0,0,0.05);
@@ -47,17 +48,17 @@ export const PetInfo = styled.div`
 export const PetName = styled.h3`
   margin: 0;
   font-size: 1.2rem;
-  color: #1a202c;
+  color: #fff;
 `;
 
 export const PetDetails = styled.p`
-  color: #666;
+  color: ${theme.colors.lightGray};
   font-size: 0.9rem;
   margin: 0.4rem 0;
 `;
 
 export const PetTraits = styled.p`
-  color: #ff6600;
+  color: ${theme.colors.orange};
   font-size: 0.95rem;
   font-weight: 500;
 `;
