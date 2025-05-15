@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.models.pet_model import Pet
+from app.services.huggingface_service import gerar_resposta_com_base_em_pets
 from app import db
 
 bp = Blueprint('main_routes', __name__)
@@ -22,8 +23,12 @@ def listar_pets():
 @bp.route("/bot", methods=["POST"])
 def bot_recomenda_pet():
     data = request.get_json()
-    texto = data.get("mensagem", "").lower()
+    texto = data.get("mensagem", "").lower().strip()
 
+    if not texto:
+        return jsonify({"resposta": "Desculpe, não entendi sua mensagem 😅"})
+
+    # 🔎 Filtros simples com base na mensagem
     filtros = [Pet.adotado == False]
 
     if "fêmea" in texto or "femea" in texto:
@@ -40,15 +45,15 @@ def bot_recomenda_pet():
         filtros.append(Pet.idade <= 2)
     if "adulto" in texto:
         filtros.append(Pet.idade > 2)
+    if "brincalhão" in texto or "ativo" in texto:
+        filtros.append(Pet.descricao.ilike("%brincalh%"))
+    if "calmo" in texto:
+        filtros.append(Pet.descricao.ilike("%calm%"))
 
-    pets = Pet.query.filter(*filtros).all()
+    pets = Pet.query.filter(*filtros).limit(5).all()
 
     if not pets:
-        return jsonify({"resposta": "Infelizmente não encontrei nenhum pet com essas características. 😢"})
+        return jsonify({"resposta": "Infelizmente não encontrei nenhum pet com essas características 😢"})
 
-    resposta = "Encontrei essas opções para você:\n\n"
-    for pet in pets:
-        resposta += f"{pet.nome} ({pet.idade} ano{'s' if pet.idade > 1 else ''}, {pet.porte}, {pet.sexo})\n"
-        resposta += f"Descrição: {pet.descricao}\n\n"
-
-    return jsonify({"resposta": resposta.strip()})
+    resposta = gerar_resposta_com_base_em_pets(texto, pets)
+    return jsonify({ "resposta": resposta })

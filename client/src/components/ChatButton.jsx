@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import dogbot from '../assets/dogbot.png'; // Importar o ícone do chat
+import React, { useState, useRef, useEffect } from 'react';
+import dogbot from '../assets/dogbot.png';
 import {
   FloatingButton,
   ChatContainer,
@@ -12,24 +12,23 @@ import {
   Avatar,
   Bubble
 } from '../styles/ChatButton.styles';
-
-import { FaComments, FaTimes, FaPaperPlane } from 'react-icons/fa';
+import { FaTimes, FaPaperPlane } from 'react-icons/fa';
 
 const enviarMensagemParaBot = async (mensagemUsuario) => {
   try {
-    const response = await fetch('http://localhost:5000/bot', {
-      method: 'POST',
+    const response = await fetch("http://localhost:5000/bot", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({ mensagem: mensagemUsuario }),
+      body: JSON.stringify({ mensagem: mensagemUsuario })
     });
 
     const data = await response.json();
     return data.resposta;
   } catch (error) {
-    console.error('Erro ao falar com o bot:', error);
-    return 'Ops! O Caramelo teve um probleminha para responder 🐶💤';
+    console.error("Erro ao enviar mensagem:", error);
+    return "Desculpe, o Caramelo está sem sinal de Wi-Fi no momento 🐶📡";
   }
 };
 
@@ -42,21 +41,30 @@ const ChatButton = () => {
       texto: 'Olá! Sou o Caramelo e estou aqui pra te ajudar. Me conta, como seria o amigo ideal pra você?',
     },
   ]);
+  const [esperandoResposta, setEsperandoResposta] = useState(false);
+  const chatBodyRef = useRef(null);
 
   const handleSend = async () => {
-    if (!message.trim()) return;
+    if (!message.trim() || esperandoResposta) return;
 
-    // Adiciona mensagem do usuário
-    setMensagens((prev) => [...prev, { autor: 'usuario', texto: message }]);
+    const msgUsuario = { autor: 'usuario', texto: message };
+    setMensagens((prev) => [...prev, msgUsuario]);
+    setMessage('');
+    setEsperandoResposta(true);
 
-    // Envia pro backend
     const resposta = await enviarMensagemParaBot(message);
 
-    // Adiciona resposta do bot
-    setMensagens((prev) => [...prev, { autor: 'bot', texto: resposta }]);
-
-    setMessage('');
+    const msgBot = { autor: 'bot', texto: resposta };
+    setMensagens((prev) => [...prev, msgBot]);
+    setEsperandoResposta(false);
   };
+
+  // Scroll automático para última mensagem
+  useEffect(() => {
+    if (chatBodyRef.current) {
+      chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+    }
+  }, [mensagens]);
 
   return (
     <>
@@ -67,7 +75,7 @@ const ChatButton = () => {
             <FaTimes onClick={() => setIsOpen(false)} style={{ cursor: 'pointer' }} />
           </ChatHeader>
 
-          <ChatBody>
+          <ChatBody ref={chatBodyRef}>
             {mensagens.map((msg, index) => (
               <MessageBubble key={index} isUser={msg.autor === 'usuario'}>
                 {msg.autor === 'bot' && <Avatar src={dogbot} alt="Dogbot" />}
@@ -78,6 +86,15 @@ const ChatButton = () => {
                 </Bubble>
               </MessageBubble>
             ))}
+            {esperandoResposta && (
+              <MessageBubble isUser={false}>
+                <Avatar src={dogbot} alt="Dogbot" />
+                <Bubble>
+                  <strong>Caramelo:</strong><br />
+                  Pensando... 🐾
+                </Bubble>
+              </MessageBubble>
+            )}
           </ChatBody>
 
           <ChatInputArea>
@@ -87,8 +104,9 @@ const ChatButton = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+              disabled={esperandoResposta}
             />
-            <SendButton onClick={handleSend}>
+            <SendButton onClick={handleSend} disabled={esperandoResposta}>
               <FaPaperPlane />
             </SendButton>
           </ChatInputArea>
