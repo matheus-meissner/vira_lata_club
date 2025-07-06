@@ -10,11 +10,11 @@ O projeto é dividido em duas partes:
 ---
 
 ## 📁 Estrutura do Projeto
-
+```bash
 vira_lata_club/
 ├── client/ → Frontend React (Vite)
 └── server/ → Backend Flask (Python)
-
+```
 ## 🚀 Como rodar o projeto localmente
 
 ### 🔧 Pré-requisitos
@@ -67,6 +67,8 @@ Editar
 python run.py
 ```
 O backend será iniciado em: http://localhost:5000
+
+---
 
 ### 🔌 Integração Frontend <-> Backend
 
