@@ -42,7 +42,7 @@ const Footer = () => {
           <h4>Conecte-se</h4>
           <SocialIcons>
             <a href="#"><FaFacebookF /></a>
-            <a href="https://www.instagram.com/viralata_club/?hl=pt"><FaInstagram /></a>
+            <a target="_blank" href="https://www.instagram.com/viralata_club/?hl=pt"><FaInstagram /></a>
             <a href="#"><FaTwitter /></a>
           </SocialIcons>
           <Newsletter>

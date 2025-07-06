@@ -55,7 +55,7 @@ const PetsList = () => {
               <PetName>{pet.name}</PetName>
               <PetDetails>{pet.age} • {pet.breed}</PetDetails>
               <PetTraits>{pet.icon} {pet.traits}</PetTraits>
-              <AdoptButton href="https://l.instagram.com/?u=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSdSci6Hras_nxwBDkXJ2RIhNIQKSnLREJbZIzEpBLjIHdtqpg%2Fviewform%3Fusp%3Dsharing%26fbclid%3DPAZXh0bgNhZW0CMTEAAadxtX7GZVoqhDwQ397I1qd0694OTHnIzes42iqFOoNNJfxC--VHCl9ER7fElQ_aem_pjKjt6CpuDE_lPUwKlHxPw&e=AT1z_O0fOUEElyr5M2wZCY6Fzk2bIaDtbxRJoS1rGadGHdm0SoVxra4M-nb9IIykjuEZDZ3AzzzC6Ob9crToiHszChXac8UODCYL394">Quero Adotar</AdoptButton>
+              <AdoptButton target="_blank" href="https://l.instagram.com/?u=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSdSci6Hras_nxwBDkXJ2RIhNIQKSnLREJbZIzEpBLjIHdtqpg%2Fviewform%3Fusp%3Dsharing%26fbclid%3DPAZXh0bgNhZW0CMTEAAadxtX7GZVoqhDwQ397I1qd0694OTHnIzes42iqFOoNNJfxC--VHCl9ER7fElQ_aem_pjKjt6CpuDE_lPUwKlHxPw&e=AT1z_O0fOUEElyr5M2wZCY6Fzk2bIaDtbxRJoS1rGadGHdm0SoVxra4M-nb9IIykjuEZDZ3AzzzC6Ob9crToiHszChXac8UODCYL394">Quero Adotar</AdoptButton>
             </PetInfo>
           </PetCard>
         ))}
