@@ -14,9 +14,11 @@ import {
 } from '../styles/ChatButton.styles';
 import { FaTimes, FaPaperPlane } from 'react-icons/fa';
 
+const apiUrl = import.meta.env.VITE_API_URL
+
 const enviarMensagemParaBot = async (mensagemUsuario) => {
   try {
-    const response = await fetch("http://localhost:5000/bot", {
+    const response = await fetch(`${apiUrl}/bot`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
