@@ -35,39 +35,37 @@ cd vira_lata_club
 Diretório: client/
 
 Instalar dependências
-bash
-Copiar
-Editar
+```bash
 cd client
 npm install
+```
 Iniciar servidor de desenvolvimento
-bash
-Copiar
-Editar
+```bash
 npm run dev
+```
 Acesse: http://localhost:5173
 
 ### 3. 🧠 Rodando o Backend (Flask + IA)
+
 Diretório: server/
 
 Criar e ativar o ambiente virtual
-bash
-Copiar
-Editar
+```bash
 cd ../server
 python -m venv venv
 .\venv\Scripts\activate         # Windows
 # source venv/bin/activate     # Linux/Mac
+```
 Instalar as dependências
-bash
-Copiar
-Editar
+```bash
 pip install -r requirements.txt
+```
 Executar o servidor
-bash
+```bash
 Copiar
 Editar
 python run.py
+```
 O backend será iniciado em: http://localhost:5000
 
 🔌 Integração Frontend <-> Backend
@@ -86,7 +84,7 @@ routes/: Configuração de rotas do React Router
 styles/: Estilização com styled-components
 
 Backend (server/app)
-ai_bot/: Lógica de IA e integração com HuggingFace
+ai_bot/: Lógica de IA e integração com openAi
 
 models/: (Reservado para futuros modelos de dados)
 
@@ -96,11 +94,8 @@ services/: Serviços auxiliares (ex: integração com IA)
 
 instance/: Base de dados SQLite (vira_lata_club.db)
 
-🧪 Testes
-(Instruções para testes podem ser adicionadas futuramente)
-
 📄 Licença
-MIT © Matheus Meissner
+MIT © Vira Lata Club
 
 📬 Contato
-Dúvidas ou sugestões? Entre em contato via LinkedIn ou abra uma issue neste repositório.
+Dúvidas ou sugestões? Entre em contato via LinkedIn :)
