@@ -46,3 +46,7 @@ coverage/
 # Ambientes (.env e variações)
 .env
 .env.*.local
+venv/
+
+# Arquivos compilados
+__pycache__/  

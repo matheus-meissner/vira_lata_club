@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.models.pet_model import Pet
-from app.services.huggingface_service import gerar_resposta_com_base_em_pets
+from app.services.openai_service import gerar_resposta_com_base_em_pets
 from app import db
 
 bp = Blueprint('main_routes', __name__)
