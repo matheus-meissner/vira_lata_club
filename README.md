@@ -1,6 +1,6 @@
 # 🐾 Vira Lata Club
 
-**Vira Lata Club** é uma aplicação web feita para a ong vira lata club com o objetivo de facilitar a **adoção de pets**, conectando usuários com cães disponíveis para adoção.
+**Vira Lata Club** é uma aplicação web feita para a ong [Vira Lata Club](https://www.instagram.com/viralata_club/?hl=pt) com o objetivo de facilitar a **adoção de pets**, conectando usuários com cães disponíveis para adoção.
 
 O projeto é dividido em duas partes:
 
@@ -68,34 +68,38 @@ python run.py
 ```
 O backend será iniciado em: http://localhost:5000
 
-🔌 Integração Frontend <-> Backend
-O frontend realiza chamadas para o backend Flask (como a geração de respostas da IA para adoção). Certifique-se de que ambos estejam rodando ao mesmo tempo para o funcionamento completo da aplicação.
+### 🔌 Integração Frontend <-> Backend
+
+O frontend realiza chamadas para o backend Flask (como a geração de respostas da IA para adoção). Certifique-se de que **ambos estejam rodando ao mesmo tempo** para o funcionamento completo da aplicação.
 
 Você pode configurar a URL da API no frontend com variáveis de ambiente ou arquivos de configuração, se necessário.
 
-📂 Principais Diretórios
-Frontend (client/src)
-components/: Componentes reutilizáveis (Header, Footer, Cards, etc.)
+---
 
-pages/: Páginas principais (Home, Adoption, Pet, etc.)
+### 📂 Principais Diretórios
 
-routes/: Configuração de rotas do React Router
+#### 🖼️ Frontend (`client/src`)
+- 📦 `components/`: Componentes reutilizáveis (Header, Footer, Cards, etc.)
+- 📄 `pages/`: Páginas principais (Home, Adoption, Pet, etc.)
+- 🧭 `routes/`: Configuração de rotas do React Router
+- 🎨 `styles/`: Estilização com styled-components
 
-styles/: Estilização com styled-components
+#### 🧠 Backend (`server/app`)
+- 🤖 `ai_bot/`: Lógica de IA e integração com OpenAI
+- 🗂️ `models/`: (Reservado para futuros modelos de dados)
+- 🌐 `routes/`: Rotas Flask (ex: `/chat`, `/pets`)
+- 🛠️ `services/`: Serviços auxiliares (ex: integração com IA)
+- 🗃️ `instance/`: Base de dados SQLite (`vira_lata_club.db`)
 
-Backend (server/app)
-ai_bot/: Lógica de IA e integração com openAi
+---
 
-models/: (Reservado para futuros modelos de dados)
+### 📄 Licença
 
-routes/: Rotas Flask (ex: /chat, /pets)
-
-services/: Serviços auxiliares (ex: integração com IA)
-
-instance/: Base de dados SQLite (vira_lata_club.db)
-
-📄 Licença
 MIT © Vira Lata Club
 
-📬 Contato
-Dúvidas ou sugestões? Entre em contato via LinkedIn :)
+---
+
+### 📬 Contato
+
+Dúvidas ou sugestões? Entre em contato via [LinkedIn](https://www.linkedin.com/in/matheus-iembo-meissner/) :)
+
